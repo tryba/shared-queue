@@ -1,0 +1,8 @@
+<h1>User Registration</h1>
+<form action="/accounts/register/" method="post">
+  {% csrf_token %}
+  <input type="text" name="email" placeholder="email" />
+  <input type="password" name="password" placeholder="password" />
+  <input type="password" name="google_password" placeholder="google password" />
+  <input type="submit" value="Register" />
+</form>

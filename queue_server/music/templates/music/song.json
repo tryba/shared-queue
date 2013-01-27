@@ -1,0 +1,9 @@
+{
+  "id":"{{song.id}}",
+  "album":"{{song.album}}",
+  "artist":"{{song.artist}}",
+  "title":"{{song.title}}",
+  "genre":"{{song.genre}}",
+  "play_count":{{song.play_count}},
+  "last_played":"{{song.last_played}}"
+}
