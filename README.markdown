@@ -5,7 +5,7 @@ The Shared Queue is inspired by the Nexus Q, and is intended to be hosted on a R
 Queue Server
 ============
 The queue server is written in python to take advantage of the
-(Unofficial Google Music API)[https://github.com/simon-weber/Unofficial-Google-Music-API] to syncronize your music library, generate streaming urls, and
+[Unofficial Google Music API](https://github.com/simon-weber/Unofficial-Google-Music-API) to syncronize your music library, generate streaming urls, and
 manage multiple song queues.
 
 *WARNING: This server currently stores Google credentials in plain text.* Since the server is meant to be used on an intranet,
