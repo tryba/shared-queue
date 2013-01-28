@@ -1,0 +1,22 @@
+<VirtualHost *:80>
+
+    ServerName 192.168.2.12
+    DocumentRoot /srv/www/shared-queue/queue_client
+
+    <Directory /srv/www/shared-queue/queue_server>
+        Order allow,deny
+        Allow from all
+    </Directory>
+
+    <Directory /srv/www/shared-queue/queue_client>
+        Order allow,deny
+        Allow from all
+    </Directory>
+
+    WSGIDaemonProcess raspberryq processes=2 threads=15 display-name=%{GROUP}
+    WSGIProcessGroup raspberryq
+
+    Alias /client/ /srv/www/shared-queue/queue_client/
+    WSGIScriptAlias / /srv/www/shared-queue/queue_server/queue_server/wsgi.py
+
+</VirtualHost>

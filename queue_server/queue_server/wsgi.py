@@ -14,6 +14,11 @@ framework.
 
 """
 import os
+import sys
+
+path = '/srv/www/shared-queue/queue_server'
+if path not in sys.path:
+    sys.path.insert(0, '/srv/www/shared-queue/queue_server')
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "queue_server.settings")
 
