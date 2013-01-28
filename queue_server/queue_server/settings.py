@@ -143,6 +143,10 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler'
         },
+        'logfile': {
+            'class': 'logging.handlers.WatchedFileHandler',
+            'filename': '/opt/local/var/queue_server/queue_server.log'
+        },
         'mail_admins': {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
@@ -151,19 +155,19 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['console'],
+            'handlers': ['console', 'logfile'],
             'level': 'DEBUG'
         },
         'accounts': {
-            'handlers': ['console'],
+            'handlers': ['console', 'logfile'],
             'level': 'DEBUG'
         },
         'queues': {
-            'handlers': ['console'],
+            'handlers': ['console', 'logfile'],
             'level': 'DEBUG'
         },
         'music': {
-            'handlers': ['console'],
+            'handlers': ['console', 'logfile'],
             'level': 'DEBUG'
         },
         'django.request': {

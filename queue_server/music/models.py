@@ -40,7 +40,7 @@ class Song(models.Model):
       new_song.album = song['album']
       new_song.artist = song['artist']
       new_song.play_count = song['playCount']
-      new_song.last_played = time.strftime( "%Y-%m-%d %H:%M:%S", time.gmtime(song['lastPlayed']/100000))
+      new_song.last_played = time.strftime( "%Y-%m-%d %H:%M:%S", time.gmtime(song['lastPlayed']/1000000))
       new_song.save()
       return new_song
     return None
