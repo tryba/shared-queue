@@ -1,1 +1,1 @@
-var Menu = Backbone.Model.extend({});
+var Menu = Backbone.Collection.extend({});

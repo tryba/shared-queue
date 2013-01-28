@@ -57,7 +57,6 @@ will compete for the songs in the list, rather than each independently playing t
 
 To Do
 =======
-* Styling
 * Client support for switching between libraries
 * Client support for switching between queues
 * Temporary urls for anonymous access

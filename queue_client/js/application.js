@@ -26,10 +26,6 @@ if(hash) {
 
 $(function(){
 
-
-  /**
-   * Models
-   **/
   var library = new Library({
     id: userId
   });
@@ -43,9 +39,6 @@ $(function(){
     currentSong: null
   });
 
-  /**
-   * Views
-   **/
   var queueView = new QueueView({
     el: $('#queue'),
     model: queue
@@ -67,7 +60,9 @@ $(function(){
       queueView: queueView
     });
     subViews['player'] = nowPlayingView;
+    nowPlayingView.hide();
   } else {
+    $('#now-playing').hide();
     subViews['queue'] = queueView;
   }
 
@@ -78,13 +73,15 @@ $(function(){
     });
   }
 
-  var menu =  new Menu({buttons: buttons});
+  buttons[0].isSelected = true;
+
+  var menu =  new Menu(buttons);
   var menuView = new MenuView({
     model: menu,
     el: $('#menu')
   });
 
-  var app = new App({subViews: subViews})
+  var app = new App({subViews: subViews, menu: menu})
   var appView = new AppView({
     model: app,
     el: $('#app'),

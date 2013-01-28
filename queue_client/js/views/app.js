@@ -1,35 +1,29 @@
 (function(root){
 
   var AppView = root.AppView= Backbone.View.extend({
-    // Constructor
     initialize: function(options) {
       var t = this;
 
-      function define_func(view, key) {
-        t["activateView_" + key] = function(){
-          t.activateView(view, key);
+      function define_func(button, view) {
+        return function(){
+          if(button.get('isSelected')) {
+            t.activateView(view, button.get('name'));
+          } else {
+            view.hide();
+          }
         }
       }
 
-      t.subViews = options.subViews
-      t.buttons = [];
+      t.subViews = options.subViews;
+      var menu = t.model.get('menu');
 
-      var i = 0;
-      for(var key in this.subViews) {
+      for(var i = 0, length = menu.length; i < length; i++) {
+        var button = menu.at(i);
+        var key = button.get('name');
         var view = t.subViews[key];
-        t.buttons.push({
-          name: key
-        });
-
-        define_func(view, key);
-
-        if(i == 0) {
-          t.activateView(view, key);
-        } else {
-          view.hide();
-        }
-        i++;
+        button.on("change:isSelected", define_func(button, view));
       }
+
     },
 
     // Initial view render
@@ -37,25 +31,8 @@
       var t = this;
     },
 
-    events: function(){
-      var t = this;
-      var events = {};
-
-      for(var i = 0, length = t.buttons.length; i < length; i++) {
-        var name = t.buttons[i].name;
-        events["click #menu ."+ name] = "activateView_" + name;
-      }
-      return events;
-    },
-
     activateView: function(view, key) {
-      var t = this;
-      if(t.activeView) {
-        t.activeView.hide();
-      }
-
-      t.activeView = view;
-      t.activeView.show();
+      view.show();
     }
   });
 

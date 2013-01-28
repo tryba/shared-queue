@@ -5,7 +5,7 @@
   root.templates.NowPlaying =
     '{{^isLoading}}' +
       '{{#currentSong}}' +
-        '<div>{{title}}</div>' +
+        '<div class="title">{{title}}</div>' +
         '<audio autoplay="autoplay" src="{{stream_url}}" controls="controls" class="playing"></audio>' +
         '{{>next}}' +
       '{{/currentSong}}{{^currentSong}}' +

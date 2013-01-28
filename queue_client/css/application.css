@@ -1,0 +1,91 @@
+body {
+  font-family:sans-serif;
+  background: #334;
+  color: #223;
+  margin: 2px 0 0 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding:0;
+}
+
+#app {
+  width: 600px;
+  background: none;
+  margin: auto;
+
+}
+
+#menu {
+  background: none;
+}
+
+#menu .buttons {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 40px;
+}
+
+#menu .button {
+  float: left;
+  width: 75px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  margin-right: 2px;
+  background: #77f;
+
+}
+.song, #now-playing {
+  position: relative;
+  width: 590px;
+  height: 90px;
+  margin: 2px 0 2px;
+  padding: 5px;
+}
+
+.song:nth-child(odd) {
+  background: #fff;
+}
+
+.song:nth-child(even) {
+  background: #ddd;
+}
+
+.song .id, .song .user_id, .song .membership_id {
+  display: none;
+}
+
+.song .genre, .song .artist, .song .album, .song .title {
+  width: 490px;
+}
+
+.song .enqueue, .song .remove, #now-playing .button {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  width: 100px;
+  height: 100px;
+  background: #77f;
+  cursor: pointer;
+  text-align:center;
+  line-height: 100px;
+  border-left: 2px solid #334;
+}
+
+#menu .button:active, #menu .button.selected, .song .enqueue:active, .song .remove:active, #now-playing .button:active {
+  background: #44d;
+}
+
+#now-playing {
+  background: #ddd;
+}
+
+#now-playing .title, #now-playing .loading {
+  line-height: 50px;
+}
