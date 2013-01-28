@@ -26,7 +26,7 @@ class Song(models.Model):
       'title': self.title,
       'genre': self.genre,
       'play_count': self.play_count,
-      'last_played': self.last_played.strftime('%s')
+      'last_played': self.last_played
     }
 
   @staticmethod

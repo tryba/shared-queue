@@ -19,7 +19,7 @@ def sync(request, user_id):
   if(result):
     songs = api.get_all_songs()
     song_dicts = [Song.create_from_google_music(song, user_id).to_dict() for song in songs]
-    return HttpResponse(json.dumps({'songs':db_songs, 'id': user_id}), mimetype="application/json")
+    return HttpResponse(json.dumps({'songs':song_dicts, 'id': user_id}), mimetype="application/json")
 
   else:
     logger.warn("Failed to log in!")
