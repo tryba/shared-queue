@@ -1,5 +1,5 @@
 
-var queueClient = new QueueClient('localhost', 8000);
+var queueClient = new QueueClient(queueHost, queuePort);
 
 var Queue = Backbone.Model.extend({
   initialize: function(attributes, options) {

@@ -18,6 +18,12 @@ class Song(models.Model):
   last_played = models.DateTimeField(null=True)
 
   def to_dict(self):
+    last_played = None
+    if type(self.last_played) is str:
+      last_played = self.last_played
+    else:
+      last_played = self.last_played.strftime('%s')
+
     return {
       'id': self.id,
       'user_id': self.user_id,
@@ -26,7 +32,7 @@ class Song(models.Model):
       'title': self.title,
       'genre': self.genre,
       'play_count': self.play_count,
-      'last_played': self.last_played
+      'last_played': last_played
     }
 
   @staticmethod
